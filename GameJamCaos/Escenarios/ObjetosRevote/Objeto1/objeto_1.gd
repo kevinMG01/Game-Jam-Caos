@@ -14,6 +14,7 @@ func _physics_process(delta):
 
 # Función para generar un ángulo aleatorio en el rango dado y convertirlo a dirección
 func generar_direccion_aleatoria(angulo_min: float, angulo_max: float) -> Vector2:
+	$rebote.play()
 	var angulo_aleatorio = randf_range(angulo_min, angulo_max)  # Ángulo aleatorio dentro del rango
 	var nueva_direccion = Vector2(cos(angulo_aleatorio), sin(angulo_aleatorio)).normalized()
 	return nueva_direccion

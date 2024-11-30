@@ -1,0 +1,121 @@
+[gd_scene load_steps=9 format=3 uid="uid://hif8s1oisfia"]
+
+[ext_resource type="Texture2D" uid="uid://daj13yjstrpby" path="res://Sprites/Bordes/bordes.png" id="1_ioduh"]
+[ext_resource type="Texture2D" uid="uid://bubbmfial5ogu" path="res://icon.svg" id="2_ox4cr"]
+[ext_resource type="PackedScene" uid="uid://1d73vllafqvs" path="res://Escenarios/Obstaculo/obstaculo.tscn" id="3_d1656"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5hfow"]
+size = Vector2(1333, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1t8tl"]
+size = Vector2(1325, 34.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mh3nq"]
+size = Vector2(44, 705)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s8q7u"]
+size = Vector2(20, 745)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aht84"]
+size = Vector2(129, 93)
+
+[node name="Nivel1" type="Node2D"]
+
+[node name="BordesSpawn" type="Node2D" parent="."]
+
+[node name="BordeArriba" type="Node2D" parent="BordesSpawn"]
+position = Vector2(183, -1)
+
+[node name="A" type="Marker2D" parent="BordesSpawn/BordeArriba"]
+
+[node name="B" type="Marker2D" parent="BordesSpawn/BordeArriba"]
+position = Vector2(912, 0)
+
+[node name="BordeAbajo" type="Node2D" parent="BordesSpawn"]
+position = Vector2(377, 717)
+
+[node name="A" type="Marker2D" parent="BordesSpawn/BordeAbajo"]
+
+[node name="B" type="Marker2D" parent="BordesSpawn/BordeAbajo"]
+position = Vector2(766, 0)
+
+[node name="BordeIzquierdo" type="Node2D" parent="BordesSpawn"]
+position = Vector2(-8, 133)
+
+[node name="A" type="Marker2D" parent="BordesSpawn/BordeIzquierdo"]
+
+[node name="B" type="Marker2D" parent="BordesSpawn/BordeIzquierdo"]
+position = Vector2(0, 439)
+
+[node name="BordeDerecho" type="Node2D" parent="BordesSpawn"]
+position = Vector2(1287, 155)
+
+[node name="A" type="Marker2D" parent="BordesSpawn/BordeDerecho"]
+
+[node name="B" type="Marker2D" parent="BordesSpawn/BordeDerecho"]
+position = Vector2(0, 428)
+
+[node name="Objetos" type="Node2D" parent="BordesSpawn"]
+position = Vector2(-108, 31)
+
+[node name="BordeArriba" type="Area2D" parent="." groups=["BordeArriba"]]
+position = Vector2(-9, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BordeArriba"]
+position = Vector2(640, -3)
+shape = SubResource("RectangleShape2D_5hfow")
+
+[node name="Bordes" type="Sprite2D" parent="BordeArriba"]
+position = Vector2(633.75, -10)
+scale = Vector2(5.14706, 0.0645161)
+texture = ExtResource("1_ioduh")
+
+[node name="BordeAbajo" type="Area2D" parent="." groups=["BordeAbajo"]]
+position = Vector2(-5, 725)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BordeAbajo"]
+position = Vector2(623.5, 2.75)
+shape = SubResource("RectangleShape2D_1t8tl")
+
+[node name="Bordes" type="Sprite2D" parent="BordeAbajo"]
+position = Vector2(621.25, 4)
+scale = Vector2(5.13529, 0.112903)
+texture = ExtResource("1_ioduh")
+
+[node name="BordeIzquierdo" type="Area2D" parent="." groups=["BordeIzquierdo"]]
+position = Vector2(-2, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BordeIzquierdo"]
+position = Vector2(-10, 347)
+shape = SubResource("RectangleShape2D_mh3nq")
+
+[node name="Bordes" type="Sprite2D" parent="BordeIzquierdo"]
+position = Vector2(-10.5, 345)
+scale = Vector2(0.129412, 2.87903)
+texture = ExtResource("1_ioduh")
+
+[node name="BordeDrecho" type="Area2D" parent="." groups=["BordeDerecho"]]
+position = Vector2(1281, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BordeDrecho"]
+position = Vector2(2, 363.5)
+shape = SubResource("RectangleShape2D_s8q7u")
+
+[node name="Bordes" type="Sprite2D" parent="BordeDrecho"]
+position = Vector2(5.25, 357)
+scale = Vector2(0.0686275, 2.91935)
+texture = ExtResource("1_ioduh")
+
+[node name="Salida" type="Area2D" parent="."]
+position = Vector2(201, 76)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Salida"]
+position = Vector2(5, 12)
+shape = SubResource("RectangleShape2D_aht84")
+
+[node name="Icon" type="Sprite2D" parent="Salida"]
+position = Vector2(13, 6)
+texture = ExtResource("2_ox4cr")
+
+[node name="Obstaculo" parent="." instance=ExtResource("3_d1656")]
+position = Vector2(568, 318)

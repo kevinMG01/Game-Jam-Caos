@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ddci254t1xqa0"]
+[gd_scene load_steps=15 format=3 uid="uid://ddci254t1xqa0"]
 
 [ext_resource type="Script" path="res://Escenarios/Nivel/Nivel tutorial/nivel_1.gd" id="1_p3bxv"]
 [ext_resource type="Texture2D" uid="uid://daj13yjstrpby" path="res://Sprites/Bordes/bordes.png" id="2_j0va0"]
@@ -7,6 +7,8 @@
 [ext_resource type="AudioStream" uid="uid://b7pcpw34gwj5e" path="res://Sonidos/cute-level-up-3-189853 1.mp3" id="5_q62d4"]
 [ext_resource type="AudioStream" uid="uid://bjjyrna2w3ee8" path="res://Sonidos/GAME OVER.mp3" id="6_138qn"]
 [ext_resource type="AudioStream" uid="uid://8rv8c4mh8k4k" path="res://Sonidos/1SPACE MELODY 1.mp3" id="7_rg2or"]
+[ext_resource type="PackedScene" uid="uid://dkle32qvogue7" path="res://Escenarios/Resortera/resortera.tscn" id="8_2mthy"]
+[ext_resource type="PackedScene" uid="uid://1d73vllafqvs" path="res://Escenarios/Obstaculo/obstaculo.tscn" id="9_d0ff4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oindj"]
 size = Vector2(1333, 10)
@@ -21,7 +23,7 @@ size = Vector2(44, 705)
 size = Vector2(20, 745)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6oncj"]
-size = Vector2(129, 110)
+size = Vector2(129, 93)
 
 [node name="Tutorial" type="Node2D"]
 script = ExtResource("1_p3bxv")
@@ -114,7 +116,7 @@ texture = ExtResource("2_j0va0")
 [node name="Salida" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Salida"]
-position = Vector2(159.5, 673)
+position = Vector2(159.5, 681.5)
 shape = SubResource("RectangleShape2D_6oncj")
 
 [node name="Icon" type="Sprite2D" parent="Salida"]
@@ -154,5 +156,11 @@ stream = ExtResource("6_138qn")
 
 [node name="Musica de fondo" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_rg2or")
+
+[node name="Resortera" parent="." instance=ExtResource("8_2mthy")]
+position = Vector2(286, 449)
+
+[node name="Obstaculo" parent="." instance=ExtResource("9_d0ff4")]
+position = Vector2(588, 346)
 
 [connection signal="area_entered" from="Salida" to="." method="_on_salida_area_entered"]

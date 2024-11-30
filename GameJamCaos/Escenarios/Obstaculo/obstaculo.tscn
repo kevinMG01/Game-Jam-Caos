@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://1d73vllafqvs"]
+
+[ext_resource type="Texture2D" uid="uid://daj13yjstrpby" path="res://Sprites/Bordes/bordes.png" id="1_bn0la"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dysc8"]
+size = Vector2(298.125, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ihina"]
+size = Vector2(292.75, 39.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dv4hg"]
+size = Vector2(101, 241.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x8pq6"]
+size = Vector2(58, 241.5)
+
+[node name="Obstaculo" type="Node2D"]
+
+[node name="BordeArriba" type="Area2D" parent="." groups=["BordeArriba"]]
+position = Vector2(46, 549)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BordeArriba"]
+position = Vector2(-11.0625, -425)
+shape = SubResource("RectangleShape2D_dysc8")
+
+[node name="BordeAbajo" type="Area2D" parent="." groups=["BordeAbajo"]]
+position = Vector2(29, 357)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BordeAbajo"]
+position = Vector2(4.625, -445)
+shape = SubResource("RectangleShape2D_ihina")
+
+[node name="BordeIzquierdo" type="Area2D" parent="." groups=["BordeIzquierdo"]]
+position = Vector2(1256, 6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BordeIzquierdo"]
+position = Vector2(-1117, 10.875)
+shape = SubResource("RectangleShape2D_dv4hg")
+
+[node name="BordeDrecho" type="Area2D" parent="." groups=["BordeDerecho"]]
+position = Vector2(13, -30)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BordeDrecho"]
+position = Vector2(-101, 46.25)
+shape = SubResource("RectangleShape2D_x8pq6")
+
+[node name="Bordes" type="Sprite2D" parent="."]
+position = Vector2(36.25, 16.5)
+scale = Vector2(1.1902, 0.987903)
+texture = ExtResource("1_bn0la")

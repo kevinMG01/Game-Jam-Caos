@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkle32qvogue7"]
+
+[ext_resource type="Texture2D" uid="uid://bggoxb4t3si6q" path="res://Sprites/Resortera/resortera1.png" id="1_m2061"]
+[ext_resource type="Script" path="res://Escenarios/Resortera/resortera.gd" id="1_maxp7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rr52d"]
+size = Vector2(158, 22)
+
+[node name="Resortera" type="Area2D"]
+script = ExtResource("1_maxp7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 1)
+shape = SubResource("RectangleShape2D_rr52d")
+
+[node name="Resortera1" type="Sprite2D" parent="."]
+position = Vector2(1, 0)
+texture = ExtResource("1_m2061")
+
+[node name="temporizador" type="Timer" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="temporizador" to="." method="_on_temporizador_timeout"]
