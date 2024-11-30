@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddci254t1xqa0"]
+
+[ext_resource type="Script" path="res://Escenarios/Nivel/Nivel1/nivel_1.gd" id="1_p3bxv"]
+
+[node name="Nivel1" type="Node2D"]
+script = ExtResource("1_p3bxv")
+
+[node name="BordesSpawn" type="Node2D" parent="."]
+
+[node name="BordeArriba" type="Node2D" parent="BordesSpawn"]
+position = Vector2(10, 7)
+
+[node name="A" type="Marker2D" parent="BordesSpawn/BordeArriba"]
+position = Vector2(0, 10)
+
+[node name="B" type="Marker2D" parent="BordesSpawn/BordeArriba"]
+position = Vector2(1270, 10)
+
+[node name="BordeAbajo" type="Node2D" parent="BordesSpawn"]
+position = Vector2(0, 711)
+
+[node name="A" type="Marker2D" parent="BordesSpawn/BordeAbajo"]
+
+[node name="B" type="Marker2D" parent="BordesSpawn/BordeAbajo"]
+position = Vector2(1280, 0)
+
+[node name="BordeIzquierdo" type="Node2D" parent="BordesSpawn"]
+position = Vector2(9, 16)
+
+[node name="A" type="Marker2D" parent="BordesSpawn/BordeIzquierdo"]
+
+[node name="B" type="Marker2D" parent="BordesSpawn/BordeIzquierdo"]
+position = Vector2(0, 695)
+
+[node name="BordeDerecho" type="Node2D" parent="BordesSpawn"]
+position = Vector2(1280, 0)
+
+[node name="A" type="Marker2D" parent="BordesSpawn/BordeDerecho"]
+
+[node name="B" type="Marker2D" parent="BordesSpawn/BordeDerecho"]
+position = Vector2(0, 720)
+
+[node name="Objetos" type="Node2D" parent="BordesSpawn"]
+position = Vector2(85, 259)
