@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://c8ts6uuyi635y"]
+[gd_scene load_steps=9 format=3 uid="uid://c8ts6uuyi635y"]
 
 [ext_resource type="Texture2D" uid="uid://daj13yjstrpby" path="res://Sprites/Bordes/bordes.png" id="1_dxtj2"]
-[ext_resource type="Texture2D" uid="uid://bubbmfial5ogu" path="res://icon.svg" id="2_rk4ah"]
+[ext_resource type="Texture2D" uid="uid://ccfsiwhmk4wbt" path="res://Sprites/Portal/portal.png" id="2_xbifq"]
+[ext_resource type="PackedScene" uid="uid://1d73vllafqvs" path="res://Escenarios/Obstaculo/obstaculo.tscn" id="3_ihlgv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2olka"]
 size = Vector2(1333, 10)
@@ -113,4 +114,34 @@ shape = SubResource("RectangleShape2D_33i8d")
 
 [node name="Icon" type="Sprite2D" parent="Salida"]
 position = Vector2(159, 684)
-texture = ExtResource("2_rk4ah")
+texture = ExtResource("2_xbifq")
+
+[node name="Obstaculo" parent="." instance=ExtResource("3_ihlgv")]
+position = Vector2(82, 370)
+rotation = -0.143154
+scale = Vector2(0.0197113, 0.386135)
+
+[node name="Obstaculo2" parent="." instance=ExtResource("3_ihlgv")]
+position = Vector2(593, 346)
+rotation = 0.296915
+scale = Vector2(0.0197113, 0.386135)
+
+[node name="Obstaculo3" parent="." instance=ExtResource("3_ihlgv")]
+position = Vector2(614, 345)
+rotation = -0.26782
+scale = Vector2(0.0197113, 0.386135)
+
+[node name="Obstaculo4" parent="." instance=ExtResource("3_ihlgv")]
+position = Vector2(1098, 371)
+rotation = -0.89543
+scale = Vector2(0.0197113, 0.336121)
+
+[node name="Obstaculo5" parent="." instance=ExtResource("3_ihlgv")]
+position = Vector2(1013, 608)
+rotation = -0.89543
+scale = Vector2(0.0197113, 0.223674)
+
+[node name="Obstaculo6" parent="." instance=ExtResource("3_ihlgv")]
+position = Vector2(981, 613)
+rotation = -2.42577
+scale = Vector2(0.0197113, 0.189141)
