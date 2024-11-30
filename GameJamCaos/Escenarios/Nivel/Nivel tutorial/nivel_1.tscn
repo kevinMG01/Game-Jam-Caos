@@ -1,10 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://ddci254t1xqa0"]
+[gd_scene load_steps=13 format=3 uid="uid://ddci254t1xqa0"]
 
 [ext_resource type="Script" path="res://Escenarios/Nivel/Nivel tutorial/nivel_1.gd" id="1_p3bxv"]
 [ext_resource type="Texture2D" uid="uid://daj13yjstrpby" path="res://Sprites/Bordes/bordes.png" id="2_j0va0"]
 [ext_resource type="Texture2D" uid="uid://bubbmfial5ogu" path="res://icon.svg" id="2_y6cwt"]
 [ext_resource type="Texture2D" uid="uid://bejyuhtwc4qwn" path="res://Sprites/Bordes/Sin título.png" id="4_8grnu"]
 [ext_resource type="AudioStream" uid="uid://b7pcpw34gwj5e" path="res://Sonidos/cute-level-up-3-189853 1.mp3" id="5_q62d4"]
+[ext_resource type="AudioStream" uid="uid://bjjyrna2w3ee8" path="res://Sonidos/GAME OVER.mp3" id="6_138qn"]
+[ext_resource type="AudioStream" uid="uid://8rv8c4mh8k4k" path="res://Sonidos/1SPACE MELODY 1.mp3" id="7_rg2or"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oindj"]
 size = Vector2(1333, 10)
@@ -145,5 +147,12 @@ layout_mode = 2
 
 [node name="Sonido de victoria" type="AudioStreamPlayer2D" parent="victoria"]
 stream = ExtResource("5_q62d4")
+
+[node name="Game Over" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(582, 364)
+stream = ExtResource("6_138qn")
+
+[node name="Musica de fondo" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_rg2or")
 
 [connection signal="area_entered" from="Salida" to="." method="_on_salida_area_entered"]
