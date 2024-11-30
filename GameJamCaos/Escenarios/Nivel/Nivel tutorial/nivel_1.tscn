@@ -129,6 +129,7 @@ position = Vector2(1162, 654)
 texture = ExtResource("4_8grnu")
 
 [node name="victoria" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 582.0

@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://hif8s1oisfia"]
+[gd_scene load_steps=11 format=3 uid="uid://hif8s1oisfia"]
 
 [ext_resource type="Texture2D" uid="uid://daj13yjstrpby" path="res://Sprites/Bordes/bordes.png" id="1_ioduh"]
 [ext_resource type="Texture2D" uid="uid://ccfsiwhmk4wbt" path="res://Sprites/Portal/portal.png" id="2_sy0ix"]
+[ext_resource type="AudioStream" uid="uid://dvjfwui4vv74t" path="res://Sonidos/Objeto toca puerta.mp3" id="3_a24fu"]
 [ext_resource type="PackedScene" uid="uid://1d73vllafqvs" path="res://Escenarios/Obstaculo/obstaculo.tscn" id="3_d1656"]
 [ext_resource type="Texture2D" uid="uid://byl86ufvlr7tv" path="res://Sprites/Portal/GPbOtliWAAAr1i4.png" id="4_0by5p"]
 
@@ -117,6 +118,9 @@ shape = SubResource("RectangleShape2D_aht84")
 [node name="Icon" type="Sprite2D" parent="Salida"]
 position = Vector2(13, 6)
 texture = ExtResource("2_sy0ix")
+
+[node name="Objeto colisiona con portal" type="AudioStreamPlayer2D" parent="Salida"]
+stream = ExtResource("3_a24fu")
 
 [node name="Obstaculo" parent="." instance=ExtResource("3_d1656")]
 position = Vector2(140, 141)

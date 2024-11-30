@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bxivus7c57suj"]
+[gd_scene load_steps=9 format=3 uid="uid://bxivus7c57suj"]
 
 [ext_resource type="Script" path="res://Escenarios/ObjetosRevote/Objeto1/objeto_1.gd" id="1_trqga"]
 [ext_resource type="Texture2D" uid="uid://bubbmfial5ogu" path="res://icon.svg" id="2_1obha"]
 [ext_resource type="Script" path="res://Escenarios/ObjetosRevote/Objeto1/Area2D.gd" id="3_mg5hx"]
-[ext_resource type="AudioStream" uid="uid://iix6gpjv47pj" path="res://Sonidos/metal-whoosh-hit-9-201909.mp3" id="4_c31a3"]
+[ext_resource type="AudioStream" uid="uid://iix6gpjv47pj" path="res://Sonidos/Rebote1.mp3" id="4_aj20c"]
+[ext_resource type="AudioStream" uid="uid://cjlbedhvdf5jg" path="res://Sonidos/Rebote2.mp3" id="5_byg21"]
+[ext_resource type="AudioStream" uid="uid://v4rpkx7svd8d" path="res://Sonidos/Rebote3.mp3" id="6_6ofit"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ab1ru"]
 radius = 9.21954
@@ -30,7 +32,13 @@ script = ExtResource("3_mg5hx")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_v0kkh")
 
-[node name="rebote" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_c31a3")
+[node name="rebote1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_aj20c")
+
+[node name="rebote2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_byg21")
+
+[node name="rebote 3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_6ofit")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
