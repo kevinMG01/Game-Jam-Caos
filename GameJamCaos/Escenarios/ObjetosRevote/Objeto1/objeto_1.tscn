@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxivus7c57suj"]
+[gd_scene load_steps=6 format=3 uid="uid://bxivus7c57suj"]
 
 [ext_resource type="Script" path="res://Escenarios/ObjetosRevote/Objeto1/objeto_1.gd" id="1_trqga"]
 [ext_resource type="Texture2D" uid="uid://bubbmfial5ogu" path="res://icon.svg" id="2_1obha"]
+[ext_resource type="Script" path="res://Escenarios/ObjetosRevote/Objeto1/Area2D.gd" id="3_mg5hx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ab1ru"]
 radius = 9.21954
@@ -22,7 +23,8 @@ position = Vector2(0.5, -0.500001)
 scale = Vector2(0.148438, 0.148438)
 texture = ExtResource("2_1obha")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["objeto"]]
+script = ExtResource("3_mg5hx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_v0kkh")
