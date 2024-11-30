@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b7pcpw34gwj5e"
+path="res://.godot/imported/cute-level-up-3-189853 1.mp3-167af2505297775b3c8d9f76cb262527.mp3str"
+
+[deps]
+
+source_file="res://Sonidos/cute-level-up-3-189853 1.mp3"
+dest_files=["res://.godot/imported/cute-level-up-3-189853 1.mp3-167af2505297775b3c8d9f76cb262527.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

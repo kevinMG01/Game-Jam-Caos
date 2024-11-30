@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://8rv8c4mh8k4k"
+path="res://.godot/imported/1SPACE MELODY 1.mp3-a33772d1cc20d01b98b54624c5849f62.mp3str"
+
+[deps]
+
+source_file="res://Sonidos/1SPACE MELODY 1.mp3"
+dest_files=["res://.godot/imported/1SPACE MELODY 1.mp3-a33772d1cc20d01b98b54624c5849f62.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
