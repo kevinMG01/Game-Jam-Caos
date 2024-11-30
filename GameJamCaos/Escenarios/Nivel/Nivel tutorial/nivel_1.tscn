@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://ddci254t1xqa0"]
+[gd_scene load_steps=16 format=3 uid="uid://ddci254t1xqa0"]
 
 [ext_resource type="Script" path="res://Escenarios/Nivel/Nivel tutorial/nivel_1.gd" id="1_p3bxv"]
 [ext_resource type="Texture2D" uid="uid://daj13yjstrpby" path="res://Sprites/Bordes/bordes.png" id="2_j0va0"]
 [ext_resource type="Texture2D" uid="uid://bubbmfial5ogu" path="res://icon.svg" id="2_y6cwt"]
+[ext_resource type="Texture2D" uid="uid://ccfsiwhmk4wbt" path="res://Sprites/Portal/portal.png" id="3_73hmd"]
 [ext_resource type="Texture2D" uid="uid://bejyuhtwc4qwn" path="res://Sprites/Bordes/Sin título.png" id="4_8grnu"]
 [ext_resource type="AudioStream" uid="uid://b7pcpw34gwj5e" path="res://Sonidos/cute-level-up-3-189853 1.mp3" id="5_q62d4"]
 [ext_resource type="AudioStream" uid="uid://bjjyrna2w3ee8" path="res://Sonidos/GAME OVER.mp3" id="6_138qn"]
@@ -121,7 +122,7 @@ shape = SubResource("RectangleShape2D_6oncj")
 
 [node name="Icon" type="Sprite2D" parent="Salida"]
 position = Vector2(159, 684)
-texture = ExtResource("2_y6cwt")
+texture = ExtResource("3_73hmd")
 
 [node name="SinTítulo" type="Sprite2D" parent="."]
 position = Vector2(1162, 654)
@@ -161,6 +162,7 @@ stream = ExtResource("7_rg2or")
 position = Vector2(286, 449)
 
 [node name="Obstaculo" parent="." instance=ExtResource("9_d0ff4")]
+visible = false
 position = Vector2(588, 346)
 
 [connection signal="area_entered" from="Salida" to="." method="_on_salida_area_entered"]
