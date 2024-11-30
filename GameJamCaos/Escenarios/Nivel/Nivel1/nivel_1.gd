@@ -10,11 +10,9 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		spawn()
-	while x > 0:
-		spawn()
-		x-=1
 
-func spawn(): #Spawnea al jugador en una posición aleatoria.
+
+func spawn():
 	var newObjeto = objeto1.instantiate()
 
 	# Añadimos el objeto al nodo correspondiente.
