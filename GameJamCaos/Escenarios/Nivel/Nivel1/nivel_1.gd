@@ -2,10 +2,9 @@ extends Node2D
 
 var objeto1 = preload("res://Escenarios/ObjetosRevote/Objeto1/objeto_1.tscn")
 
-var x = 4
+
 func _ready():
 	randomize()
-	pass
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
@@ -15,7 +14,6 @@ func _process(delta):
 func spawn():
 	var newObjeto = objeto1.instantiate()
 
-	# Añadimos el objeto al nodo correspondiente.
 	$BordesSpawn/Objetos.add_child(newObjeto)
 
 	# Asignamos una posición aleatoria dependiendo del borde.
@@ -23,7 +21,6 @@ func spawn():
 	var rng = RandomNumberGenerator.new()
 	var direccion_inicial : Vector2
 
-	# Generamos la dirección aleatoria y la asignamos a cada caso.
 	if numeroaleatorio == 1:  # Arriba
 		newObjeto.position.y = $BordesSpawn/BordeArriba.global_position.y
 		var x_aleatoria = rng.randf_range($BordesSpawn/BordeArriba/A.global_position.x, $BordesSpawn/BordeArriba/B.global_position.x)
