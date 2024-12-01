@@ -277,5 +277,9 @@ position = Vector2(634.5, 358.5)
 scale = Vector2(1.01016, 1.00417)
 texture = ExtResource("11_8c3iw")
 
+[node name="Sonido de victoria" type="AudioStreamPlayer2D" parent="."]
+process_mode = 2
+stream = ExtResource("10_7uje3")
+
 [connection signal="area_entered" from="Salida" to="." method="_on_salida_area_entered"]
 [connection signal="button_down" from="victoria/MarginContainer/HBoxContainer/butonNivel" to="." method="_on_buton_nivel_button_down"]
