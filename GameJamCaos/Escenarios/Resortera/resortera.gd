@@ -17,6 +17,7 @@ var cantidad = 0
 func _ready():
 	$temporizador.wait_time = tiempoAparicion
 	$temporizador.start()
+	
 
 
 func _on_area_entered(area):

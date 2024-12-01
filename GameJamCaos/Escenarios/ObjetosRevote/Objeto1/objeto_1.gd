@@ -13,7 +13,9 @@ func _physics_process(delta):
 	move_and_slide()
 
 func generar_direccion_aleatoria(angulo_min: float, angulo_max: float) -> Vector2:
-	$rebote1.play()
+	var sonidos = [$rebote1, $rebote2, $rebote3]
+	var sonido_aleatorio = sonidos[randi() % sonidos.size()]
+	sonido_aleatorio.play()
 	var angulo_aleatorio = randf_range(angulo_min, angulo_max)  # Ángulo aleatorio dentro del rango
 	var nueva_direccion = Vector2(cos(angulo_aleatorio), sin(angulo_aleatorio)).normalized()
 	return nueva_direccion

@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="GameJamCaos"
+run/main_scene="res://Escenarios/Menu/menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 

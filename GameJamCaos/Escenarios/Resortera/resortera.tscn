@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://dkle32qvogue7"]
 
 [ext_resource type="Script" path="res://Escenarios/Resortera/resortera.gd" id="1_maxp7"]
-[ext_resource type="Texture2D" uid="uid://t4pv60bx2o8x" path="res://Sprites/Resortera/resortera 100x300.png" id="2_edwob"]
+[ext_resource type="Texture2D" uid="uid://t4pv60bx2o8x" path="res://Sprites/Resortera/resortera_100x300.png" id="2_akj5p"]
 [ext_resource type="AudioStream" uid="uid://cjii38r0ofo8o" path="res://Sonidos/Dispara.mp3" id="3_k5kpx"]
-[ext_resource type="AudioStream" uid="uid://d2rc0akqacq1x" path="res://Sonidos/Agarra objeto.mp3" id="4_lsmg6"]
+[ext_resource type="AudioStream" uid="uid://d2rc0akqacq1x" path="res://Sonidos/Agarra_objeto.mp3" id="4_lsmg6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rr52d"]
 size = Vector2(68, 21)
@@ -18,7 +18,7 @@ shape = SubResource("RectangleShape2D_rr52d")
 [node name="Resortera1" type="Sprite2D" parent="."]
 position = Vector2(1, 0)
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("2_edwob")
+texture = ExtResource("2_akj5p")
 
 [node name="temporizador" type="Timer" parent="."]
 

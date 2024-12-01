@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bejyuhtwc4qwn"
-path="res://.godot/imported/Sin título.png-97804b24ae48aa9f2b003949866e7f9d.ctex"
+uid="uid://t4pv60bx2o8x"
+path="res://.godot/imported/resortera_100x300.png-27c2e9727681558ef3384357b6200b6c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Bordes/Sin título.png"
-dest_files=["res://.godot/imported/Sin título.png-97804b24ae48aa9f2b003949866e7f9d.ctex"]
+source_file="res://Sprites/Resortera/resortera_100x300.png"
+dest_files=["res://.godot/imported/resortera_100x300.png-27c2e9727681558ef3384357b6200b6c.ctex"]
 
 [params]
 

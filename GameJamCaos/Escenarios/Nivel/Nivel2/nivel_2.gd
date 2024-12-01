@@ -1,7 +1,5 @@
 extends Node2D
 
-
-
 var objeto1 = preload("res://Escenarios/ObjetosRevote/Objeto1/objeto_1.tscn")
 @onready var resorte_scene = preload("res://Escenarios/Resortera/resortera.tscn")
 
@@ -35,6 +33,7 @@ func _ready():
 	$"Musica de fondo".play()
 	$Timer.wait_time = temporizador
 	$Timer.start()
+	
 
 
 func _process(delta):
@@ -55,7 +54,7 @@ func _process(delta):
 	
 	if objetivosCumplidos >= objetivosPorCumplir:
 		scalaVictoria(delta)
-		$victoria/MarginContainer/HBoxContainer/butonNivel.text = str("Siguiente Nivel")
+		$victoria/MarginContainer/HBoxContainer/butonNivel.text = str("Siguiente")
 		$victoria/MarginContainer/GanarPerder.text = str("¡¡Victoria!!")
 		ganarPerder = "ganar"
 
@@ -116,16 +115,15 @@ func _input(event):
 			add_child(resorte)
 			resorteraActual = resortesMax
 
+func _on_timer_timeout():
+	$"Game Over".play()
+	get_tree().paused = true
+
+
 func _on_salida_area_entered(area):
 	if area.is_in_group("objeto"):
 		area.destruir()
 		objetivosCumplidos += 1
-
-func _on_timer_timeout():
-	$"Game Over".play()
-	get_tree().paused = true
-	
-
 
 
 func _on_buton_nivel_button_down():
@@ -133,4 +131,6 @@ func _on_buton_nivel_button_down():
 	if ganarPerder == "perder":
 		get_tree().change_scene_to_file("res://Escenarios/Menu/menu.tscn")
 	if ganarPerder == "ganar":
-		get_tree().change_scene_to_file("res://Escenarios/Nivel/Nivel1/nivel_1.tscn")
+		get_tree().change_scene_to_file("res://Escenarios/Creditos/creditos.tscn")
+
+

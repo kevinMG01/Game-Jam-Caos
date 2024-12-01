@@ -1,7 +1,6 @@
 extends Node2D
 
 
-
 var objeto1 = preload("res://Escenarios/ObjetosRevote/Objeto1/objeto_1.tscn")
 @onready var resorte_scene = preload("res://Escenarios/Resortera/resortera.tscn")
 
@@ -10,14 +9,15 @@ var objeto1 = preload("res://Escenarios/ObjetosRevote/Objeto1/objeto_1.tscn")
 @onready var objetivosCumplidosText = $objetivosCumplidos
 @onready var textTemporizador = $TextTemporizador
 
-var objetivosPorCumplir = 20
+var objetivosPorCumplir = 15
 var objetivosCumplidos = 0
 
 var objetosEnEscena = 0
 var resortesMax = 1
 var resorteraActual = 0
 
-var temporizador = 60
+var temporizador = 6
+
 
 @onready var victoria = $victoria/MarginContainer  # Suponiendo que este es el nodo a escalar
 
@@ -27,7 +27,6 @@ var escala_final = Vector2(1, 1)  # Escala final (1, 1)
 var tiempo_transcurrido = 0.0  # Variable para hacer el seguimiento del tiempo
 
 var ganarPerder = ""
-
 func _ready():
 	victoria.scale = escala_inicial 
 	randomize()
@@ -38,15 +37,8 @@ func _ready():
 
 
 func _process(delta):
-	misionDeBusqueda.text = str("Objetivos a recolectar   " + str(objetivosPorCumplir))
-	objetivosCumplidosText.text = str("Recolección  " + str(objetivosCumplidos))
-	
-	if objetivosCumplidos >= objetivosPorCumplir:
-		get_tree().change_scene("res://Escenarios/Nivel/Nivel2/nivel_2.tscn")
-		pass
 	var tiempoRestante = int($Timer.time_left)  # Obtener el tiempo restante
 	textTemporizador.text = "Tiempo: " + str(tiempoRestante)
-	
 	if tiempoRestante <= 0:
 		scalaVictoria(delta)
 		$victoria/MarginContainer/HBoxContainer/butonNivel.text = str("Vonver a Menú")
@@ -58,11 +50,6 @@ func _process(delta):
 		$victoria/MarginContainer/HBoxContainer/butonNivel.text = str("Siguiente Nivel")
 		$victoria/MarginContainer/GanarPerder.text = str("¡¡Victoria!!")
 		ganarPerder = "ganar"
-
-func scalaVictoria(delta):
-	if tiempo_transcurrido < tiempo_escalado:
-		victoria.scale = lerp(escala_inicial, escala_final, tiempo_transcurrido / tiempo_escalado)
-		tiempo_transcurrido += delta
 
 func spawn():
 	var newObjeto = objeto1.instantiate()
@@ -101,7 +88,6 @@ func spawn():
 	newObjeto.direccion = direccion_inicial
 
 func spawnObjetosEnEscena():
-	
 	while objetosEnEscena <= objetivosPorCumplir:
 		spawn()
 		objetosEnEscena += 1
@@ -116,10 +102,16 @@ func _input(event):
 			add_child(resorte)
 			resorteraActual = resortesMax
 
+func scalaVictoria(delta):
+	if tiempo_transcurrido < tiempo_escalado:
+		victoria.scale = lerp(escala_inicial, escala_final, tiempo_transcurrido / tiempo_escalado)
+		tiempo_transcurrido += delta
+
 func _on_salida_area_entered(area):
 	if area.is_in_group("objeto"):
 		area.destruir()
 		objetivosCumplidos += 1
+	
 
 func _on_timer_timeout():
 	$"Game Over".play()
@@ -127,10 +119,10 @@ func _on_timer_timeout():
 	
 
 
-
-func _on_buton_nivel_button_down():
+func _on_perder_button_down():
 	get_tree().paused = false
 	if ganarPerder == "perder":
 		get_tree().change_scene_to_file("res://Escenarios/Menu/menu.tscn")
 	if ganarPerder == "ganar":
 		get_tree().change_scene_to_file("res://Escenarios/Nivel/Nivel1/nivel_1.tscn")
+

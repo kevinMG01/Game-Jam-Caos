@@ -1,13 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://ddci254t1xqa0"]
+[gd_scene load_steps=18 format=3 uid="uid://ddci254t1xqa0"]
 
-[ext_resource type="Script" path="res://Escenarios/Nivel/Nivel tutorial/nivel_1.gd" id="1_p3bxv"]
+[ext_resource type="Script" path="res://Escenarios/Nivel/Niveltutorial/nivel_1.gd" id="1_p3bxv"]
 [ext_resource type="Texture2D" uid="uid://daj13yjstrpby" path="res://Sprites/Bordes/bordes.png" id="2_j0va0"]
 [ext_resource type="Texture2D" uid="uid://bubbmfial5ogu" path="res://icon.svg" id="2_y6cwt"]
 [ext_resource type="Texture2D" uid="uid://ccfsiwhmk4wbt" path="res://Sprites/Portal/portal.png" id="3_73hmd"]
-[ext_resource type="Texture2D" uid="uid://bejyuhtwc4qwn" path="res://Sprites/Bordes/Sin título.png" id="4_8grnu"]
-[ext_resource type="AudioStream" uid="uid://b7pcpw34gwj5e" path="res://Sonidos/cute-level-up-3-189853 1.mp3" id="5_q62d4"]
-[ext_resource type="AudioStream" uid="uid://bjjyrna2w3ee8" path="res://Sonidos/GAME OVER.mp3" id="6_138qn"]
-[ext_resource type="AudioStream" uid="uid://8rv8c4mh8k4k" path="res://Sonidos/1SPACE MELODY 1.mp3" id="7_rg2or"]
+[ext_resource type="AudioStream" uid="uid://b7pcpw34gwj5e" path="res://Sonidos/cute_level_up_3_189853_1.mp3" id="5_q62d4"]
+[ext_resource type="AudioStream" uid="uid://bjjyrna2w3ee8" path="res://Sonidos/GAME_OVER.mp3" id="6_138qn"]
+[ext_resource type="AudioStream" uid="uid://8rv8c4mh8k4k" path="res://Sonidos/1SPACE_MELODY_1.mp3" id="7_rg2or"]
 [ext_resource type="PackedScene" uid="uid://1d73vllafqvs" path="res://Escenarios/Obstaculo/obstaculo.tscn" id="9_d0ff4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oindj"]
@@ -22,8 +21,40 @@ size = Vector2(44, 705)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0b8cs"]
 size = Vector2(20, 745)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6oncj"]
-size = Vector2(129, 93)
+[sub_resource type="CircleShape2D" id="CircleShape2D_3rjuj"]
+radius = 20.5061
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t0i2h"]
+bg_color = Color(0, 0.141176, 0.239216, 1)
+border_width_left = 10
+border_width_top = 8
+border_width_right = 10
+border_width_bottom = 7
+border_color = Color(0.12549, 0.831373, 0.568627, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3hq0p"]
+bg_color = Color(0.00043817, 0.142303, 0.239843, 1)
+border_width_left = 12
+border_width_top = 10
+border_width_right = 12
+border_width_bottom = 9
+border_color = Color(0.12549, 0.831373, 0.568627, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wvgt4"]
+bg_color = Color(0, 0.141176, 0.239216, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.12549, 0.831373, 0.568627, 1)
+border_blend = true
+
+[sub_resource type="Theme" id="Theme_jevxt"]
+Button/styles/hover = SubResource("StyleBoxFlat_t0i2h")
+Button/styles/normal = SubResource("StyleBoxFlat_3hq0p")
+Button/styles/pressed = SubResource("StyleBoxFlat_wvgt4")
 
 [node name="Tutorial" type="Node2D"]
 script = ExtResource("1_p3bxv")
@@ -116,42 +147,15 @@ texture = ExtResource("2_j0va0")
 [node name="Salida" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Salida"]
-position = Vector2(159.5, 681.5)
-shape = SubResource("RectangleShape2D_6oncj")
+position = Vector2(158.5, 687.5)
+shape = SubResource("CircleShape2D_3rjuj")
 
 [node name="Icon" type="Sprite2D" parent="Salida"]
 position = Vector2(159, 684)
 texture = ExtResource("3_73hmd")
 
-[node name="SinTítulo" type="Sprite2D" parent="."]
-position = Vector2(948, 588)
-texture = ExtResource("4_8grnu")
-
-[node name="victoria" type="Control" parent="."]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_left = 582.0
-offset_top = 364.0
-offset_right = 622.0
-offset_bottom = 404.0
-
-[node name="MarginContainer" type="MarginContainer" parent="victoria"]
-layout_mode = 0
-offset_right = 128.0
-offset_bottom = 128.0
-
-[node name="TextureRect" type="TextureRect" parent="victoria/MarginContainer"]
-layout_mode = 2
-texture = ExtResource("2_y6cwt")
-
-[node name="TextureButton" type="TextureButton" parent="victoria/MarginContainer"]
-layout_mode = 2
-
-[node name="Sonido de victoria" type="AudioStreamPlayer2D" parent="victoria"]
-stream = ExtResource("5_q62d4")
-
 [node name="Game Over" type="AudioStreamPlayer2D" parent="."]
+process_mode = 2
 position = Vector2(582, 364)
 stream = ExtResource("6_138qn")
 
@@ -161,4 +165,55 @@ stream = ExtResource("7_rg2or")
 [node name="Obstaculo" parent="." instance=ExtResource("9_d0ff4")]
 position = Vector2(588, 346)
 
+[node name="Timer" type="Timer" parent="."]
+
+[node name="TextTemporizador" type="Label" parent="."]
+offset_left = 30.0
+offset_top = 23.0
+offset_right = 70.0
+offset_bottom = 46.0
+
+[node name="victoria" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 468.0
+offset_top = 217.0
+offset_right = 508.0
+offset_bottom = 257.0
+
+[node name="MarginContainer" type="MarginContainer" parent="victoria"]
+layout_mode = 0
+offset_left = -96.0
+offset_top = -99.0
+offset_right = 404.0
+offset_bottom = 401.0
+
+[node name="TextureRect" type="TextureRect" parent="victoria/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_y6cwt")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="victoria/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="butonNivel" type="Button" parent="victoria/MarginContainer/HBoxContainer"]
+process_mode = 2
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 8
+theme = SubResource("Theme_jevxt")
+theme_override_font_sizes/font_size = 31
+text = "Vonver a Menú"
+
+[node name="GanarPerder" type="Label" parent="victoria/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 83
+text = "¡¡Perdiste!!"
+
+[node name="Sonido de victoria" type="AudioStreamPlayer2D" parent="victoria"]
+stream = ExtResource("5_q62d4")
+
 [connection signal="area_entered" from="Salida" to="." method="_on_salida_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="button_down" from="victoria/MarginContainer/HBoxContainer/butonNivel" to="." method="_on_perder_button_down"]

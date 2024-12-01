@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2t2cclb2sa0c"]
+
+[ext_resource type="Script" path="res://Escenarios/Menu/menu.gd" id="1_sytrs"]
+
+[node name="menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_sytrs")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="play" type="Button" parent="."]
+layout_mode = 0
+offset_left = 233.0
+offset_top = 150.0
+offset_right = 241.0
+offset_bottom = 158.0
+
+[connection signal="button_down" from="play" to="." method="_on_play_button_down"]

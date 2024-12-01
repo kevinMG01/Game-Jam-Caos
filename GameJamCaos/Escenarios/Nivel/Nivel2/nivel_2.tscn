@@ -1,8 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://c8ts6uuyi635y"]
+[gd_scene load_steps=18 format=3 uid="uid://c8ts6uuyi635y"]
 
+[ext_resource type="Script" path="res://Escenarios/Nivel/Nivel2/nivel_2.gd" id="1_ce0x8"]
 [ext_resource type="Texture2D" uid="uid://daj13yjstrpby" path="res://Sprites/Bordes/bordes.png" id="1_dxtj2"]
 [ext_resource type="Texture2D" uid="uid://ccfsiwhmk4wbt" path="res://Sprites/Portal/portal.png" id="2_xbifq"]
 [ext_resource type="PackedScene" uid="uid://1d73vllafqvs" path="res://Escenarios/Obstaculo/obstaculo.tscn" id="3_ihlgv"]
+[ext_resource type="AudioStream" uid="uid://8rv8c4mh8k4k" path="res://Sonidos/1SPACE_MELODY_1.mp3" id="5_vio10"]
+[ext_resource type="AudioStream" uid="uid://bjjyrna2w3ee8" path="res://Sonidos/GAME_OVER.mp3" id="6_wkqqh"]
+[ext_resource type="Texture2D" uid="uid://bubbmfial5ogu" path="res://icon.svg" id="7_kk6oj"]
+[ext_resource type="AudioStream" uid="uid://b7pcpw34gwj5e" path="res://Sonidos/cute_level_up_3_189853_1.mp3" id="8_5du74"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2olka"]
 size = Vector2(1333, 10)
@@ -19,7 +24,40 @@ size = Vector2(20, 745)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_33i8d"]
 size = Vector2(129, 93)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ednwk"]
+bg_color = Color(0, 0.141176, 0.239216, 1)
+border_width_left = 10
+border_width_top = 8
+border_width_right = 10
+border_width_bottom = 7
+border_color = Color(0.12549, 0.831373, 0.568627, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fkhrx"]
+bg_color = Color(0.00043817, 0.142303, 0.239843, 1)
+border_width_left = 12
+border_width_top = 10
+border_width_right = 12
+border_width_bottom = 9
+border_color = Color(0.12549, 0.831373, 0.568627, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i1nca"]
+bg_color = Color(0, 0.141176, 0.239216, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.12549, 0.831373, 0.568627, 1)
+border_blend = true
+
+[sub_resource type="Theme" id="Theme_6m0tx"]
+Button/styles/hover = SubResource("StyleBoxFlat_ednwk")
+Button/styles/normal = SubResource("StyleBoxFlat_fkhrx")
+Button/styles/pressed = SubResource("StyleBoxFlat_i1nca")
+
 [node name="Nivel2" type="Node2D"]
+script = ExtResource("1_ce0x8")
 
 [node name="BordesSpawn" type="Node2D" parent="."]
 
@@ -145,3 +183,80 @@ scale = Vector2(0.0197113, 0.223674)
 position = Vector2(981, 613)
 rotation = -2.42577
 scale = Vector2(0.0197113, 0.189141)
+
+[node name="misionBusqueda" type="Label" parent="."]
+offset_left = 545.0
+offset_top = 32.0
+offset_right = 585.0
+offset_bottom = 55.0
+text = "objetivos"
+metadata/_edit_use_anchors_ = true
+
+[node name="objetivosCumplidos" type="Label" parent="."]
+offset_left = 550.0
+offset_top = 65.0
+offset_right = 621.0
+offset_bottom = 88.0
+text = "objetivos"
+metadata/_edit_use_anchors_ = true
+
+[node name="Musica de fondo" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_vio10")
+
+[node name="Game Over" type="AudioStreamPlayer2D" parent="."]
+process_mode = 2
+position = Vector2(582, 364)
+stream = ExtResource("6_wkqqh")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="TextTemporizador" type="Label" parent="."]
+offset_left = 30.0
+offset_top = 23.0
+offset_right = 70.0
+offset_bottom = 46.0
+
+[node name="victoria" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 468.0
+offset_top = 217.0
+offset_right = 508.0
+offset_bottom = 257.0
+
+[node name="MarginContainer" type="MarginContainer" parent="victoria"]
+layout_mode = 0
+offset_left = -96.0
+offset_top = -99.0
+offset_right = 404.0
+offset_bottom = 401.0
+
+[node name="TextureRect" type="TextureRect" parent="victoria/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("7_kk6oj")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="victoria/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="butonNivel" type="Button" parent="victoria/MarginContainer/HBoxContainer"]
+process_mode = 2
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 8
+theme = SubResource("Theme_6m0tx")
+theme_override_font_sizes/font_size = 31
+text = "Vonver a Menú"
+
+[node name="GanarPerder" type="Label" parent="victoria/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 83
+text = "¡¡Perdiste!!"
+
+[node name="Sonido de victoria" type="AudioStreamPlayer2D" parent="victoria"]
+stream = ExtResource("8_5du74")
+
+[connection signal="area_entered" from="Salida" to="." method="_on_salida_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="button_down" from="victoria/MarginContainer/HBoxContainer/butonNivel" to="." method="_on_buton_nivel_button_down"]
