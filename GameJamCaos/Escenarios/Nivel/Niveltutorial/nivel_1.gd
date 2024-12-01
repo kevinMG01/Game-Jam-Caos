@@ -9,10 +9,11 @@ var objeto1 = preload("res://Escenarios/ObjetosRevote/Objeto1/objeto_1.tscn")
 @onready var objetivosCumplidosText = $objetivosCumplidos
 @onready var textTemporizador = $TextTemporizador
 
-var misionobjeto1 = randi_range(5,10)
-var misionobjeto2 = randi_range(5, 10)
+var cantidadmisionobjeto1 = randi_range(5,10)
+var cantidadmisionobjeto2 = randi_range(5, 10)
 
-var objetivosPorCumplir = misionobjeto1 + misionobjeto2
+
+var objetivosPorCumplir = cantidadmisionobjeto1 + cantidadmisionobjeto2
 var objetivosCumplidos = 0
 
 var objetosEnEscena = 0
@@ -51,6 +52,7 @@ func _process(delta):
 	
 	if objetivosCumplidos >= objetivosPorCumplir:
 		scalaVictoria(delta)
+		$"victoria/Sonido de victoria".play()
 		$victoria/MarginContainer/HBoxContainer/butonNivel.text = str("Siguiente Nivel")
 		$victoria/MarginContainer/GanarPerder.text = str("¡¡Victoria!!")
 		ganarPerder = "ganar"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ddci254t1xqa0"]
+[gd_scene load_steps=21 format=3 uid="uid://ddci254t1xqa0"]
 
 [ext_resource type="Script" path="res://Escenarios/Nivel/Niveltutorial/nivel_1.gd" id="1_p3bxv"]
 [ext_resource type="Texture2D" uid="uid://daj13yjstrpby" path="res://Sprites/Bordes/bordes.png" id="2_j0va0"]
@@ -7,7 +7,9 @@
 [ext_resource type="AudioStream" uid="uid://b7pcpw34gwj5e" path="res://Sonidos/cute_level_up_3_189853_1.mp3" id="5_q62d4"]
 [ext_resource type="AudioStream" uid="uid://bjjyrna2w3ee8" path="res://Sonidos/GAME_OVER.mp3" id="6_138qn"]
 [ext_resource type="AudioStream" uid="uid://8rv8c4mh8k4k" path="res://Sonidos/1SPACE_MELODY_1.mp3" id="7_rg2or"]
+[ext_resource type="FontFile" uid="uid://bi78p2mfa1pes" path="res://fuente/04B_30__.TTF" id="8_rqlry"]
 [ext_resource type="PackedScene" uid="uid://1d73vllafqvs" path="res://Escenarios/Obstaculo/obstaculo.tscn" id="9_d0ff4"]
+[ext_resource type="Theme" uid="uid://clne5qmx5ot30" path="res://fuente/new_theme.tres" id="9_h7qqa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oindj"]
 size = Vector2(1333, 10)
@@ -23,6 +25,8 @@ size = Vector2(20, 745)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3rjuj"]
 radius = 20.5061
+
+[sub_resource type="Theme" id="Theme_c3pxb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t0i2h"]
 bg_color = Color(0, 0.141176, 0.239216, 1)
@@ -144,7 +148,7 @@ position = Vector2(5.25, 357)
 scale = Vector2(0.0686275, 2.91935)
 texture = ExtResource("2_j0va0")
 
-[node name="Salida" type="Area2D" parent="."]
+[node name="Salida" type="Area2D" parent="." groups=["salir"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Salida"]
 position = Vector2(158.5, 687.5)
@@ -172,6 +176,7 @@ offset_left = 30.0
 offset_top = 23.0
 offset_right = 70.0
 offset_bottom = 46.0
+theme_override_fonts/font = ExtResource("8_rqlry")
 
 [node name="victoria" type="Control" parent="."]
 layout_mode = 3
@@ -187,6 +192,7 @@ offset_left = -96.0
 offset_top = -99.0
 offset_right = 404.0
 offset_bottom = 401.0
+theme = SubResource("Theme_c3pxb")
 
 [node name="TextureRect" type="TextureRect" parent="victoria/MarginContainer"]
 layout_mode = 2
@@ -202,16 +208,20 @@ layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 8
 theme = SubResource("Theme_jevxt")
+theme_override_fonts/font = ExtResource("8_rqlry")
 theme_override_font_sizes/font_size = 31
 text = "Vonver a Menú"
 
 [node name="GanarPerder" type="Label" parent="victoria/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme = ExtResource("9_h7qqa")
+theme_override_fonts/font = ExtResource("8_rqlry")
 theme_override_font_sizes/font_size = 83
 text = "¡¡Perdiste!!"
 
 [node name="Sonido de victoria" type="AudioStreamPlayer2D" parent="victoria"]
+process_mode = 2
 stream = ExtResource("5_q62d4")
 
 [connection signal="area_entered" from="Salida" to="." method="_on_salida_area_entered"]

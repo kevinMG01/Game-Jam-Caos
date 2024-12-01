@@ -4,7 +4,7 @@ extends CharacterBody2D
 var direccion :Vector2
 @export var velocidad:int
 
-var item = 1
+var item = 2
 
 
 func _ready():
@@ -51,5 +51,3 @@ func _on_area_2d_area_entered(area):
 		cambiar_direccion_por_borde("BordeIzquierdo")
 	if area.is_in_group("BordeDerecho"):
 		cambiar_direccion_por_borde("BordeDerecho")
-
-

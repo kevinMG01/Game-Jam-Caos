@@ -1,12 +1,20 @@
 extends Node2D
 
 var objeto1 = preload("res://Escenarios/ObjetosRevote/Objeto1/objeto_1.tscn")
+var objeto2 = preload("res://Escenarios/ObjetosRevote/Objeto2/objetivo_2.tscn")
 @onready var resorte_scene = preload("res://Escenarios/Resortera/resortera.tscn")
 
 @onready var dimencionVictoria = $victoria/MarginContainer
 @onready var misionDeBusqueda = $misionBusqueda
 @onready var objetivosCumplidosText = $objetivosCumplidos
 @onready var textTemporizador = $TextTemporizador
+
+
+var misionobjeto1 = randi_range(9,15)
+var misionobjeto2 = randi_range(9, 15)
+
+var objetivoRojo = 0
+var objetivoAzul = 0
 
 var objetivosPorCumplir = 20
 var objetivosCumplidos = 0
@@ -34,11 +42,23 @@ func _ready():
 	$Timer.wait_time = temporizador
 	$Timer.start()
 	
+func quitarExesoObjetos():
+	if objetivoRojo > misionobjeto2:
+		objetivoRojo -= 1
+	if objetivoAzul > misionobjeto1:
+		objetivoAzul -= 1
 
+
+func queobjetoEntro(item):
+	if item == 1:
+		objetivoAzul += 1
+	elif item == 2:
+		objetivoRojo += 1
 
 func _process(delta):
-	misionDeBusqueda.text = str("Objetivos a recolectar   " + str(objetivosPorCumplir))
-	objetivosCumplidosText.text = str("Recolección  " + str(objetivosCumplidos))
+	quitarExesoObjetos()
+	misionDeBusqueda.text = str("Objetivos a recolectar Azul   " + str(objetivoAzul) +" /" + str(misionobjeto1))
+	objetivosCumplidosText.text = str("Objetivos a recolectar Azul   " + str(objetivoRojo) +" /" + str(misionobjeto2))
 	
 	if objetivosCumplidos >= objetivosPorCumplir:
 		get_tree().change_scene("res://Escenarios/Nivel/Nivel2/nivel_2.tscn")
@@ -52,8 +72,10 @@ func _process(delta):
 		$victoria/MarginContainer/GanarPerder.text = str("¡¡Perdiste!!")
 		ganarPerder = "perder"
 	
-	if objetivosCumplidos >= objetivosPorCumplir:
+	if objetivoAzul == misionobjeto1 && objetivoRojo == misionobjeto2:
 		scalaVictoria(delta)
+		get_tree().paused = true
+		$"Sonido de victoria".play()
 		$victoria/MarginContainer/HBoxContainer/butonNivel.text = str("Siguiente")
 		$victoria/MarginContainer/GanarPerder.text = str("¡¡Victoria!!")
 		ganarPerder = "ganar"
@@ -63,8 +85,8 @@ func scalaVictoria(delta):
 		victoria.scale = lerp(escala_inicial, escala_final, tiempo_transcurrido / tiempo_escalado)
 		tiempo_transcurrido += delta
 
-func spawn():
-	var newObjeto = objeto1.instantiate()
+func spawn(rebotes):
+	var newObjeto = rebotes.instantiate()
 
 	$BordesSpawn/Objetos.add_child(newObjeto)
 
@@ -100,10 +122,10 @@ func spawn():
 	newObjeto.direccion = direccion_inicial
 
 func spawnObjetosEnEscena():
-	
-	while objetosEnEscena <= objetivosPorCumplir:
-		spawn()
-		objetosEnEscena += 1
+	for i in misionobjeto1:
+		spawn(objeto1)
+	for i in misionobjeto2:
+		spawn(objeto2)
 
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
@@ -123,7 +145,7 @@ func _on_timer_timeout():
 func _on_salida_area_entered(area):
 	if area.is_in_group("objeto"):
 		area.destruir()
-		objetivosCumplidos += 1
+		queobjetoEntro(area.get_parent().item)
 
 
 func _on_buton_nivel_button_down():

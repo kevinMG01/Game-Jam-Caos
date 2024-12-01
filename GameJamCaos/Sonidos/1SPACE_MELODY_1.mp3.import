@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/1SPACE_MELODY_1.mp3-03571b966f85e55ef4bb6ace8
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0
