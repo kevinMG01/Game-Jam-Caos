@@ -1,5 +1,7 @@
 extends Node2D
 
+
+
 var objeto1 = preload("res://Escenarios/ObjetosRevote/Objeto1/objeto_1.tscn")
 @onready var resorte_scene = preload("res://Escenarios/Resortera/resortera.tscn")
 
@@ -8,15 +10,13 @@ var objeto1 = preload("res://Escenarios/ObjetosRevote/Objeto1/objeto_1.tscn")
 var objetivosPorCumplir = 15
 var contador = 0
 
+var objetosEnEscena = 0
+var resortesMax = 1
+var resorteraActual = 0
 
 func _ready():
 	randomize()
-	$"Musica de fondo".play()
-
-func _process(delta):
-	if Input.is_action_just_pressed("ui_accept"):
-		spawn()
-
+	spawnObjetosEnEscena()
 
 func spawn():
 	var newObjeto = objeto1.instantiate()
@@ -54,21 +54,24 @@ func spawn():
 
 	newObjeto.direccion = direccion_inicial
 
-func victoria():
-	if contador < objetivosPorCumplir:
-		dimencionVictoria
+func spawnObjetosEnEscena():
+	
+	while objetosEnEscena <= objetivosPorCumplir:
+		spawn()
+		objetosEnEscena += 1
 
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		var clic_pos = get_global_mouse_position()
-		var resorte = resorte_scene.instantiate()
-		resorte.position = clic_pos
-		resorte._input(event)
-		add_child(resorte)
+		if resorteraActual < resortesMax:
+			var clic_pos = get_global_mouse_position()
+			var resorte = resorte_scene.instantiate()
+			resorte.position = clic_pos
+			resorte._input(event)
+			add_child(resorte)
+			resorteraActual = resortesMax
 
 func _on_salida_area_entered(area):
 	if area.is_in_group("objeto"):
 		area.destruir()
 		contador += 1
-
 

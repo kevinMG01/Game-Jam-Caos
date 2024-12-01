@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://hif8s1oisfia"]
+[gd_scene load_steps=12 format=3 uid="uid://hif8s1oisfia"]
 
 [ext_resource type="Texture2D" uid="uid://daj13yjstrpby" path="res://Sprites/Bordes/bordes.png" id="1_ioduh"]
+[ext_resource type="Script" path="res://Escenarios/Nivel/Nivel1/nivel_1.gd" id="1_wcxyj"]
 [ext_resource type="Texture2D" uid="uid://ccfsiwhmk4wbt" path="res://Sprites/Portal/portal.png" id="2_sy0ix"]
 [ext_resource type="AudioStream" uid="uid://dvjfwui4vv74t" path="res://Sonidos/Objeto toca puerta.mp3" id="3_a24fu"]
 [ext_resource type="PackedScene" uid="uid://1d73vllafqvs" path="res://Escenarios/Obstaculo/obstaculo.tscn" id="3_d1656"]
@@ -18,10 +19,11 @@ size = Vector2(44, 705)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s8q7u"]
 size = Vector2(20, 745)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_aht84"]
-size = Vector2(129, 93)
+[sub_resource type="CircleShape2D" id="CircleShape2D_8420f"]
+radius = 18.0278
 
 [node name="Nivel1" type="Node2D"]
+script = ExtResource("1_wcxyj")
 
 [node name="BordesSpawn" type="Node2D" parent="."]
 
@@ -112,8 +114,8 @@ texture = ExtResource("1_ioduh")
 position = Vector2(201, 76)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Salida"]
-position = Vector2(5, 12)
-shape = SubResource("RectangleShape2D_aht84")
+position = Vector2(14, 8)
+shape = SubResource("CircleShape2D_8420f")
 
 [node name="Icon" type="Sprite2D" parent="Salida"]
 position = Vector2(13, 6)
@@ -147,3 +149,5 @@ visible = false
 z_index = -6
 position = Vector2(738, 288)
 texture = ExtResource("4_0by5p")
+
+[connection signal="area_entered" from="Salida" to="." method="_on_salida_area_entered"]

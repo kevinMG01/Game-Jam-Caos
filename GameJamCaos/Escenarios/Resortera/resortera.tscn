@@ -6,17 +6,18 @@
 [ext_resource type="AudioStream" uid="uid://d2rc0akqacq1x" path="res://Sonidos/Agarra objeto.mp3" id="4_lsmg6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rr52d"]
-size = Vector2(158, 22)
+size = Vector2(68, 21)
 
 [node name="Resortera" type="Area2D"]
 script = ExtResource("1_maxp7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, 1)
+position = Vector2(-1, -2.5)
 shape = SubResource("RectangleShape2D_rr52d")
 
 [node name="Resortera1" type="Sprite2D" parent="."]
 position = Vector2(1, 0)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_edwob")
 
 [node name="temporizador" type="Timer" parent="."]
@@ -27,6 +28,9 @@ volume_db = -18.667
 
 [node name="Agarra el objeto" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_lsmg6")
+
+[node name="nuewObjeto" type="Marker2D" parent="."]
+position = Vector2(1, -32)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="temporizador" to="." method="_on_temporizador_timeout"]
