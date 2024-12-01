@@ -194,6 +194,8 @@ offset_bottom = 401.0
 theme = SubResource("Theme_c3pxb")
 
 [node name="TextureRect" type="TextureRect" parent="victoria/MarginContainer"]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0.576471, 0, 0, 0.945098)
 layout_mode = 2
 texture = ExtResource("2_j0va0")
 

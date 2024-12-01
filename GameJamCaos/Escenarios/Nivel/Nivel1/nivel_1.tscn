@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://hif8s1oisfia"]
+[gd_scene load_steps=22 format=3 uid="uid://hif8s1oisfia"]
 
 [ext_resource type="Texture2D" uid="uid://daj13yjstrpby" path="res://Sprites/Bordes/bordes.png" id="1_ioduh"]
 [ext_resource type="Script" path="res://Escenarios/Nivel/Nivel1/nivel_1.gd" id="1_wcxyj"]
@@ -10,7 +10,6 @@
 [ext_resource type="AudioStream" uid="uid://8rv8c4mh8k4k" path="res://Sonidos/1SPACE_MELODY_1.mp3" id="7_q6kbh"]
 [ext_resource type="AudioStream" uid="uid://bjjyrna2w3ee8" path="res://Sonidos/GAME_OVER.mp3" id="8_ce2cg"]
 [ext_resource type="FontFile" uid="uid://bi78p2mfa1pes" path="res://fuente/04B_30__.TTF" id="8_p2fi6"]
-[ext_resource type="Texture2D" uid="uid://bubbmfial5ogu" path="res://icon.svg" id="9_5orl8"]
 [ext_resource type="AudioStream" uid="uid://b7pcpw34gwj5e" path="res://Sonidos/cute_level_up_3_189853_1.mp3" id="10_7uje3"]
 [ext_resource type="Texture2D" uid="uid://dxhimmjn1rvnb" path="res://Sprites/menu/fondo_1.png" id="11_8c3iw"]
 
@@ -245,7 +244,7 @@ theme = ExtResource("7_frcrf")
 
 [node name="TextureRect" type="TextureRect" parent="victoria/MarginContainer"]
 layout_mode = 2
-texture = ExtResource("9_5orl8")
+texture = ExtResource("1_ioduh")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="victoria/MarginContainer"]
 layout_mode = 2
