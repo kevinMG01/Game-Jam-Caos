@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bxivus7c57suj"]
 
 [ext_resource type="Script" path="res://Escenarios/ObjetosRevote/Objeto1/objeto_1.gd" id="1_trqga"]
-[ext_resource type="Texture2D" uid="uid://bubbmfial5ogu" path="res://icon.svg" id="2_1obha"]
+[ext_resource type="Texture2D" uid="uid://fmaunbrtisqr" path="res://Sprites/Objetos/objeto1.png" id="2_01tc6"]
 [ext_resource type="Script" path="res://Escenarios/ObjetosRevote/Objeto1/Area2D.gd" id="3_mg5hx"]
 [ext_resource type="AudioStream" uid="uid://iix6gpjv47pj" path="res://Sonidos/Rebote1.mp3" id="4_aj20c"]
 [ext_resource type="AudioStream" uid="uid://cjlbedhvdf5jg" path="res://Sonidos/Rebote2.mp3" id="5_byg21"]
@@ -23,8 +23,7 @@ disabled = true
 
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(0.5, -0.500001)
-scale = Vector2(0.148438, 0.148438)
-texture = ExtResource("2_1obha")
+texture = ExtResource("2_01tc6")
 
 [node name="Area2D" type="Area2D" parent="." groups=["objeto"]]
 script = ExtResource("3_mg5hx")

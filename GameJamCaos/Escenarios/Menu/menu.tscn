@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://b2t2cclb2sa0c"]
+[gd_scene load_steps=8 format=3 uid="uid://b2t2cclb2sa0c"]
 
 [ext_resource type="Script" path="res://Escenarios/Menu/menu.gd" id="1_sytrs"]
+[ext_resource type="Texture2D" uid="uid://bddpo4x03fvip" path="res://Sprites/menu/letra_salir_roja.png" id="2_645c0"]
+[ext_resource type="Texture2D" uid="uid://clc5pskhlwa8o" path="res://Sprites/menu/letra_play_roja.png" id="3_01u5e"]
+[ext_resource type="Texture2D" uid="uid://dxqrmskrgq563" path="res://Sprites/menu/letra_creditos_roja.png" id="4_pe44o"]
+[ext_resource type="Texture2D" uid="uid://cnaiusnx5w5cj" path="res://Sprites/menu/letra_play.png" id="4_sugvh"]
+[ext_resource type="Texture2D" uid="uid://bk35m78fagb76" path="res://Sprites/menu/letra_creditos.png" id="5_ymu4f"]
+[ext_resource type="Texture2D" uid="uid://cddhfheljc1fn" path="res://Sprites/menu/letra_salir.png" id="7_i38k8"]
 
 [node name="menu" type="Control"]
 layout_mode = 3
@@ -12,11 +18,33 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="play" type="Button" parent="."]
+[node name="play" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 233.0
-offset_top = 150.0
-offset_right = 257.0
-offset_bottom = 172.0
+offset_left = 101.0
+offset_top = 108.0
+offset_right = 433.0
+offset_bottom = 252.0
+texture_normal = ExtResource("3_01u5e")
+texture_pressed = ExtResource("4_sugvh")
+
+[node name="Creditos" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 304.0
+offset_right = 448.0
+offset_bottom = 397.0
+texture_normal = ExtResource("4_pe44o")
+texture_pressed = ExtResource("5_ymu4f")
+
+[node name="salir" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 140.0
+offset_top = 454.0
+offset_right = 469.0
+offset_bottom = 554.0
+texture_normal = ExtResource("2_645c0")
+texture_pressed = ExtResource("7_i38k8")
 
 [connection signal="button_down" from="play" to="." method="_on_play_button_down"]
+[connection signal="button_down" from="Creditos" to="." method="_on_creditos_button_down"]
+[connection signal="button_down" from="salir" to="." method="_on_salir_button_down"]
