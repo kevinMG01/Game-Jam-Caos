@@ -16,7 +16,7 @@ offset_bottom = 40.0
 layout_mode = 0
 offset_left = 233.0
 offset_top = 150.0
-offset_right = 241.0
-offset_bottom = 158.0
+offset_right = 257.0
+offset_bottom = 172.0
 
 [connection signal="button_down" from="play" to="." method="_on_play_button_down"]
