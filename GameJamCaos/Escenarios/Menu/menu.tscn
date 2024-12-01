@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b2t2cclb2sa0c"]
+[gd_scene load_steps=9 format=3 uid="uid://b2t2cclb2sa0c"]
 
 [ext_resource type="Script" path="res://Escenarios/Menu/menu.gd" id="1_sytrs"]
 [ext_resource type="Texture2D" uid="uid://bddpo4x03fvip" path="res://Sprites/menu/letra_salir_roja.png" id="2_645c0"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cnaiusnx5w5cj" path="res://Sprites/menu/letra_play.png" id="4_sugvh"]
 [ext_resource type="Texture2D" uid="uid://bk35m78fagb76" path="res://Sprites/menu/letra_creditos.png" id="5_ymu4f"]
 [ext_resource type="Texture2D" uid="uid://cddhfheljc1fn" path="res://Sprites/menu/letra_salir.png" id="7_i38k8"]
+[ext_resource type="Texture2D" uid="uid://dxhimmjn1rvnb" path="res://Sprites/menu/fondo_1.png" id="8_hff2o"]
 
 [node name="menu" type="Control"]
 layout_mode = 3
@@ -20,30 +21,36 @@ offset_bottom = 40.0
 
 [node name="play" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 101.0
-offset_top = 108.0
-offset_right = 433.0
-offset_bottom = 252.0
+offset_left = 488.0
+offset_top = 140.0
+offset_right = 820.0
+offset_bottom = 284.0
 texture_normal = ExtResource("3_01u5e")
 texture_pressed = ExtResource("4_sugvh")
 
 [node name="Creditos" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 120.0
-offset_top = 304.0
-offset_right = 448.0
-offset_bottom = 397.0
+offset_left = 496.0
+offset_top = 336.0
+offset_right = 824.0
+offset_bottom = 429.0
 texture_normal = ExtResource("4_pe44o")
 texture_pressed = ExtResource("5_ymu4f")
 
 [node name="salir" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 140.0
-offset_top = 454.0
-offset_right = 469.0
-offset_bottom = 554.0
+offset_left = 500.0
+offset_top = 483.0
+offset_right = 829.0
+offset_bottom = 583.0
 texture_normal = ExtResource("2_645c0")
 texture_pressed = ExtResource("7_i38k8")
+
+[node name="Fondo1" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(640, 360.5)
+scale = Vector2(1.00625, 1.00694)
+texture = ExtResource("8_hff2o")
 
 [connection signal="button_down" from="play" to="." method="_on_play_button_down"]
 [connection signal="button_down" from="Creditos" to="." method="_on_creditos_button_down"]

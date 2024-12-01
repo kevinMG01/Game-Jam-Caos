@@ -1,3 +1,15 @@
-[gd_scene format=3 uid="uid://bartf02wqna8s"]
+[gd_scene load_steps=3 format=3 uid="uid://bartf02wqna8s"]
+
+[ext_resource type="Texture2D" uid="uid://bgr0508t0e656" path="res://Sprites/menu/Creditos.jpg" id="1_cmnwf"]
+[ext_resource type="Texture2D" uid="uid://bao0wm0mjra0i" path="res://Sprites/menu/boton volver 1.png" id="2_450o3"]
 
 [node name="creditos" type="Node2D"]
+
+[node name="Creditos" type="Sprite2D" parent="."]
+position = Vector2(640, 357)
+scale = Vector2(1, 1.01111)
+texture = ExtResource("1_cmnwf")
+
+[node name="BotonVolver1" type="Sprite2D" parent="."]
+position = Vector2(165, 73)
+texture = ExtResource("2_450o3")

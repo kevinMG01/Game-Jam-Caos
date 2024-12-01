@@ -15,7 +15,7 @@ var objetosEnEscena = 0
 var resortesMax = 1
 var resorteraActual = 0
 
-var temporizador = 60
+var temporizador = 30
 
 @onready var victoria = $victoria/MarginContainer  # Suponiendo que este es el nodo a escalar
 

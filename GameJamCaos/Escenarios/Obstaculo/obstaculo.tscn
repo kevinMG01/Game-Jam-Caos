@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://1d73vllafqvs"]
 
-[ext_resource type="Texture2D" uid="uid://daj13yjstrpby" path="res://Sprites/Bordes/bordes.png" id="1_bn0la"]
+[ext_resource type="Texture2D" uid="uid://8emq05517tb" path="res://Sprites/Portal/pared.png" id="1_uledx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dysc8"]
 size = Vector2(298.125, 35)
@@ -45,6 +45,6 @@ position = Vector2(-101, 46.25)
 shape = SubResource("RectangleShape2D_x8pq6")
 
 [node name="Bordes" type="Sprite2D" parent="."]
-position = Vector2(36.25, 16.5)
-scale = Vector2(1.1902, 0.987903)
-texture = ExtResource("1_bn0la")
+position = Vector2(36.5, 17)
+scale = Vector2(0.924242, 2.5)
+texture = ExtResource("1_uledx")
