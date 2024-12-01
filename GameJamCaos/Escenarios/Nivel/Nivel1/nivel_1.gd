@@ -10,7 +10,13 @@ var objeto1 = preload("res://Escenarios/ObjetosRevote/Objeto1/objeto_1.tscn")
 @onready var objetivosCumplidosText = $objetivosCumplidos
 @onready var textTemporizador = $TextTemporizador
 
-var objetivosPorCumplir = 20
+var misionobjeto1 = randi_range(9,15)
+var misionobjeto2 = randi_range(9, 15)
+
+var objetivoRojo = 0
+var objetivoAzul = 0
+
+var objetivosPorCumplir = misionobjeto1 + misionobjeto2
 var objetivosCumplidos = 0
 
 var objetosEnEscena = 0

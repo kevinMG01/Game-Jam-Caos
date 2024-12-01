@@ -7,15 +7,6 @@ var direccion :Vector2
 
 
 func _ready():
-	var sprite_node = $Icon  
-	
-	var sprites = [
-		"res://Sprites/Objetos/objeto1.png",
-		"res://Sprites/Objetos/objeto2.png"
-	]
-	
-	var random_index = randi() % sprites.size()  
-	sprite_node.texture = load(sprites[random_index])
 	pass
 
 func _physics_process(delta):

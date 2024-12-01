@@ -9,7 +9,10 @@ var objeto1 = preload("res://Escenarios/ObjetosRevote/Objeto1/objeto_1.tscn")
 @onready var objetivosCumplidosText = $objetivosCumplidos
 @onready var textTemporizador = $TextTemporizador
 
-var objetivosPorCumplir = 15
+var misionobjeto1 = randi_range(5,10)
+var misionobjeto2 = randi_range(5, 10)
+
+var objetivosPorCumplir = misionobjeto1 + misionobjeto2
 var objetivosCumplidos = 0
 
 var objetosEnEscena = 0
@@ -17,6 +20,7 @@ var resortesMax = 1
 var resorteraActual = 0
 
 var temporizador = 60
+
 
 
 @onready var victoria = $victoria/MarginContainer  # Suponiendo que este es el nodo a escalar
