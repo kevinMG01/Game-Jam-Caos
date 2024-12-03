@@ -46,13 +46,14 @@ func _process(delta):
 	textTemporizador.text = "Tiempo: " + str(tiempoRestante)
 	if tiempoRestante <= 0:
 		scalaVictoria(delta)
-		$victoria/MarginContainer/HBoxContainer/butonNivel.text = str("Vonver a Menú")
-		$victoria/MarginContainer/GanarPerder.text = str("¡¡Perdiste!!")
-		ganarPerder = "perder"
+		$victoria/Sonidodevictoria.play()
+		$victoria/MarginContainer/HBoxContainer/butonNivel.text = str("Siguiente Nivel")
+		$victoria/MarginContainer/GanarPerder.text = str("¡¡Victoria!!")
+		ganarPerder = "ganar"
 	
 	if objetivosCumplidos >= objetivosPorCumplir:
 		scalaVictoria(delta)
-		$"victoria/Sonido de victoria".play()
+		$victoria/Sonidodevictoria.play()
 		$victoria/MarginContainer/HBoxContainer/butonNivel.text = str("Siguiente Nivel")
 		$victoria/MarginContainer/GanarPerder.text = str("¡¡Victoria!!")
 		ganarPerder = "ganar"
@@ -120,7 +121,7 @@ func _on_salida_area_entered(area):
 	
 
 func _on_timer_timeout():
-	$"Game Over".play()
+	$victoria/Sonidodevictoria.play()
 	get_tree().paused = true
 	
 

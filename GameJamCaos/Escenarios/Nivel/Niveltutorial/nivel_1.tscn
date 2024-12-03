@@ -1,12 +1,14 @@
-[gd_scene load_steps=20 format=3 uid="uid://ddci254t1xqa0"]
+[gd_scene load_steps=22 format=3 uid="uid://ddci254t1xqa0"]
 
 [ext_resource type="Script" path="res://Escenarios/Nivel/Niveltutorial/nivel_1.gd" id="1_p3bxv"]
+[ext_resource type="Texture2D" uid="uid://dxhimmjn1rvnb" path="res://Sprites/menu/fondo_1.png" id="2_c2w6w"]
 [ext_resource type="Texture2D" uid="uid://daj13yjstrpby" path="res://Sprites/Bordes/bordes.png" id="2_j0va0"]
 [ext_resource type="Texture2D" uid="uid://ccfsiwhmk4wbt" path="res://Sprites/Portal/portal.png" id="3_73hmd"]
 [ext_resource type="AudioStream" uid="uid://b7pcpw34gwj5e" path="res://Sonidos/cute_level_up_3_189853_1.mp3" id="5_q62d4"]
 [ext_resource type="AudioStream" uid="uid://bjjyrna2w3ee8" path="res://Sonidos/GAME_OVER.mp3" id="6_138qn"]
 [ext_resource type="AudioStream" uid="uid://8rv8c4mh8k4k" path="res://Sonidos/1SPACE_MELODY_1.mp3" id="7_rg2or"]
 [ext_resource type="FontFile" uid="uid://bi78p2mfa1pes" path="res://fuente/04B_30__.TTF" id="8_rqlry"]
+[ext_resource type="Texture2D" uid="uid://cshflv0vmg3ik" path="res://Sprites/menu/Pantalla de victoria (1).png" id="9_4dqgq"]
 [ext_resource type="PackedScene" uid="uid://1d73vllafqvs" path="res://Escenarios/Obstaculo/obstaculo.tscn" id="9_d0ff4"]
 [ext_resource type="Theme" uid="uid://clne5qmx5ot30" path="res://fuente/new_theme.tres" id="9_h7qqa"]
 
@@ -61,6 +63,11 @@ Button/styles/pressed = SubResource("StyleBoxFlat_wvgt4")
 
 [node name="Tutorial" type="Node2D"]
 script = ExtResource("1_p3bxv")
+
+[node name="Fondo1" type="Sprite2D" parent="."]
+position = Vector2(636, 363.5)
+scale = Vector2(1.01563, 1.02361)
+texture = ExtResource("2_c2w6w")
 
 [node name="BordesSpawn" type="Node2D" parent="."]
 
@@ -180,24 +187,23 @@ theme_override_fonts/font = ExtResource("8_rqlry")
 [node name="victoria" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 468.0
-offset_top = 217.0
-offset_right = 508.0
-offset_bottom = 257.0
+offset_left = 547.0
+offset_top = 376.0
+offset_right = 587.0
+offset_bottom = 416.0
 
 [node name="MarginContainer" type="MarginContainer" parent="victoria"]
 layout_mode = 0
-offset_left = -96.0
-offset_top = -99.0
-offset_right = 404.0
-offset_bottom = 401.0
+offset_right = 234.0
 theme = SubResource("Theme_c3pxb")
+theme_override_constants/margin_left = -200
+theme_override_constants/margin_top = -200
+theme_override_constants/margin_right = -300
+theme_override_constants/margin_bottom = -200
 
-[node name="TextureRect" type="TextureRect" parent="victoria/MarginContainer"]
-modulate = Color(0, 0, 0, 1)
-self_modulate = Color(0.576471, 0, 0, 0.945098)
-layout_mode = 2
-texture = ExtResource("2_j0va0")
+[node name="PantallaDeVictoria(1)" type="Sprite2D" parent="victoria/MarginContainer"]
+position = Vector2(148, 35)
+texture = ExtResource("9_4dqgq")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="victoria/MarginContainer"]
 layout_mode = 2
@@ -207,13 +213,14 @@ size_flags_vertical = 8
 process_mode = 2
 layout_mode = 2
 size_flags_horizontal = 6
-size_flags_vertical = 8
+size_flags_vertical = 0
 theme = SubResource("Theme_jevxt")
 theme_override_fonts/font = ExtResource("8_rqlry")
 theme_override_font_sizes/font_size = 31
 text = "Vonver a Menú"
 
 [node name="GanarPerder" type="Label" parent="victoria/MarginContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("9_h7qqa")
@@ -221,7 +228,7 @@ theme_override_fonts/font = ExtResource("8_rqlry")
 theme_override_font_sizes/font_size = 83
 text = "¡¡Perdiste!!"
 
-[node name="Sonido de victoria" type="AudioStreamPlayer2D" parent="victoria"]
+[node name="Sonidodevictoria" type="AudioStreamPlayer2D" parent="victoria"]
 process_mode = 2
 stream = ExtResource("5_q62d4")
 

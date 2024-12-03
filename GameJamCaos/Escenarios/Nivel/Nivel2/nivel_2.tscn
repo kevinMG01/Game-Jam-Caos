@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c8ts6uuyi635y"]
+[gd_scene load_steps=21 format=3 uid="uid://c8ts6uuyi635y"]
 
 [ext_resource type="Script" path="res://Escenarios/Nivel/Nivel2/nivel_2.gd" id="1_ce0x8"]
 [ext_resource type="Texture2D" uid="uid://daj13yjstrpby" path="res://Sprites/Bordes/bordes.png" id="1_dxtj2"]
@@ -8,7 +8,9 @@
 [ext_resource type="AudioStream" uid="uid://8rv8c4mh8k4k" path="res://Sonidos/1SPACE_MELODY_1.mp3" id="5_vio10"]
 [ext_resource type="AudioStream" uid="uid://bjjyrna2w3ee8" path="res://Sonidos/GAME_OVER.mp3" id="6_wkqqh"]
 [ext_resource type="AudioStream" uid="uid://b7pcpw34gwj5e" path="res://Sonidos/cute_level_up_3_189853_1.mp3" id="8_5du74"]
+[ext_resource type="Texture2D" uid="uid://cshflv0vmg3ik" path="res://Sprites/menu/Pantalla de victoria (1).png" id="8_mfcfp"]
 [ext_resource type="Texture2D" uid="uid://dxhimmjn1rvnb" path="res://Sprites/menu/fondo_1.png" id="9_ctpxo"]
+[ext_resource type="Texture2D" uid="uid://vyqrtqda3wd8" path="res://Sprites/menu/Pantalla de perdida (1).png" id="9_trcxj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2olka"]
 size = Vector2(1333, 10)
@@ -59,6 +61,12 @@ Button/styles/pressed = SubResource("StyleBoxFlat_i1nca")
 
 [node name="Nivel2" type="Node2D"]
 script = ExtResource("1_ce0x8")
+
+[node name="Fondo1" type="Sprite2D" parent="."]
+z_index = -3
+position = Vector2(639, 358)
+scale = Vector2(1.00312, 1.00556)
+texture = ExtResource("9_ctpxo")
 
 [node name="BordesSpawn" type="Node2D" parent="."]
 
@@ -235,13 +243,17 @@ offset_top = -99.0
 offset_right = 404.0
 offset_bottom = 401.0
 
-[node name="TextureRect" type="TextureRect" parent="victoria/MarginContainer"]
-layout_mode = 2
-texture = ExtResource("1_dxtj2")
-
 [node name="HBoxContainer" type="HBoxContainer" parent="victoria/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 8
+
+[node name="PantallaDeVictoria(1)" type="Sprite2D" parent="victoria/MarginContainer/HBoxContainer"]
+position = Vector2(346, -164)
+texture = ExtResource("8_mfcfp")
+
+[node name="PantallaDePerdida(1)" type="Sprite2D" parent="victoria/MarginContainer/HBoxContainer"]
+position = Vector2(345, -171)
+texture = ExtResource("9_trcxj")
 
 [node name="butonNivel" type="Button" parent="victoria/MarginContainer/HBoxContainer"]
 process_mode = 2
@@ -254,22 +266,14 @@ theme_override_font_sizes/font_size = 31
 text = "Vonver a Menú"
 
 [node name="GanarPerder" type="Label" parent="victoria/MarginContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("5_mm4v0")
 theme_override_font_sizes/font_size = 83
 text = "¡¡Perdiste!!"
 
-[node name="Sonido de victoria" type="AudioStreamPlayer2D" parent="victoria"]
-stream = ExtResource("8_5du74")
-
-[node name="Fondo1" type="Sprite2D" parent="."]
-z_index = -3
-position = Vector2(639, 358)
-scale = Vector2(1.00312, 1.00556)
-texture = ExtResource("9_ctpxo")
-
-[node name="Sonido de victoria" type="AudioStreamPlayer2D" parent="."]
+[node name="Sonido_de_victoria" type="AudioStreamPlayer2D" parent="."]
 process_mode = 2
 stream = ExtResource("8_5du74")
 

@@ -24,7 +24,10 @@ var objetosEnEscena = 0
 var resortesMax = 1
 var resorteraActual = 0
 
-var temporizador = 30
+var temporizador = 90
+
+var itemazul= 0
+var itemrojo= 0
 
 @onready var victoria = $victoria/MarginContainer  # Suponiendo que este es el nodo a escalar
 
@@ -36,6 +39,8 @@ var tiempo_transcurrido = 0.0  # Variable para hacer el seguimiento del tiempo
 var ganarPerder = ""
 
 func _ready():
+	$"victoria/MarginContainer/HBoxContainer/PantallaDeVictoria(1)".visible = false
+	$"victoria/MarginContainer/HBoxContainer/PantallaDePerdida(1)".visible = false
 	victoria.scale = escala_inicial 
 	randomize()
 	spawnObjetosEnEscena()
@@ -53,11 +58,16 @@ func quitarExesoObjetos():
 func queobjetoEntro(item):
 	if item == 1:
 		objetivoAzul += 1
+		itemazul += 1
 	elif item == 2:
 		objetivoRojo += 1
+		itemrojo += 1
+
+
 
 func _process(delta):
 	quitarExesoObjetos()
+	
 	misionDeBusqueda.text = str("Objetivos a recolectar Azul   " + str(objetivoAzul) +" /" + str(misionobjeto1))
 	objetivosCumplidosText.text = str("Objetivos a recolectar Azul   " + str(objetivoRojo) +" /" + str(misionobjeto2))
 	
@@ -67,21 +77,29 @@ func _process(delta):
 	if tiempoRestante <= 0:
 		scalaVictoria(delta)
 		$victoria/MarginContainer/HBoxContainer/butonNivel.text = str("Vonver a Menú")
-		$victoria/MarginContainer/GanarPerder.text = str("¡¡Perdiste!!")
+		$"victoria/MarginContainer/HBoxContainer/PantallaDePerdida(1)".visible = true
 		ganarPerder = "perder"
+
 	
 	if objetivoAzul == misionobjeto1 && objetivoRojo == misionobjeto2:
-		get_tree().paused = true
 		scalaVictoria(delta)
 		$"Sonido de victoria".play()
 		$victoria/MarginContainer/HBoxContainer/butonNivel.text = str("Siguiente Nivel")
-		$victoria/MarginContainer/GanarPerder.text = str("¡¡Victoria!!")
+		$"victoria/MarginContainer/HBoxContainer/PantallaDeVictoria(1)".visible = true
 		ganarPerder = "ganar"
+	while itemazul > 0:
+		spawn(objeto1)
+		itemazul -= 1
+	while itemrojo > 0:
+		spawn(objeto2)
+		itemrojo -=1
 
 func scalaVictoria(delta):
 	if tiempo_transcurrido < tiempo_escalado:
 		victoria.scale = lerp(escala_inicial, escala_final, tiempo_transcurrido / tiempo_escalado)
 		tiempo_transcurrido += delta
+	else:
+		get_tree().paused = true
 
 func spawn(rebotes):
 	var newObjeto = rebotes.instantiate()
@@ -142,11 +160,11 @@ func _on_salida_area_entered(area):
 		area.destruir()
 		queobjetoEntro(area.get_parent().item)
 
+
 func _on_timer_timeout():
 	$"Game Over".play()
 	get_tree().paused = true
 	
-
 
 
 func _on_buton_nivel_button_down():
